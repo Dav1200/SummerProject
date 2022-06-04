@@ -39,6 +39,7 @@ public class GameWorld extends World {
         wall2.setPosition(new Vec2(11.5f, -4));
 
         student = new Student(this);
+
         student.setPosition(new Vec2(7, -6));
     }
 

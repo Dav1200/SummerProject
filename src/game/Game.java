@@ -25,8 +25,9 @@ public class Game {
 
 
         //2. make a view to look into the game world
-        GameView view = new GameView(world, 1280, 720);
+        GameView view = new GameView(world, 1280, 720,world.getStudent());
         world.addStepListener(world.getStudent());
+        world.addStepListener(view);
         //optional: draw a 1-metre grid over the view
         //view.setGridResolution(1);
 
