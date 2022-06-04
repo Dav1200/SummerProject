@@ -2,6 +2,7 @@ package game;
 
 import city.cs.engine.UserView;
 import city.cs.engine.World;
+import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +10,12 @@ import java.awt.*;
 public class GameView extends UserView {
 
     private Image background;
+    private GameWorld World;
 
 
     public GameView(GameWorld w, int width, int height) {
         super(w, width, height);
+        this.World = World;
         background = new ImageIcon("data/Grass_Sample.png").getImage();
     }
 
@@ -25,6 +28,7 @@ public class GameView extends UserView {
         g.drawImage(background,704,310,this);
         g.drawImage(background,0,610,this);
         g.drawImage(background,704,610,this);
+        setCentre(new Vec2(World.getStudent().getPosition()));
 
 
 

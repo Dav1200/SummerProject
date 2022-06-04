@@ -5,6 +5,8 @@ import org.jbox2d.common.Vec2;
 
 public class GameWorld extends World {
 
+    private Student student;
+
     public GameWorld() {
 
         setGravity(0);
@@ -36,7 +38,16 @@ public class GameWorld extends World {
         StaticBody wall2 = new StaticBody(this, wallShape);
         wall2.setPosition(new Vec2(11.5f, -4));
 
-        Student student = new Student(this);
+        student = new Student(this);
         student.setPosition(new Vec2(7, -6));
     }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 }

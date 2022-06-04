@@ -2,7 +2,7 @@ package game;
 
 import city.cs.engine.*;
 //dadadasdqawedfasdvxcv
-public class Student extends DynamicBody {
+public class Student extends DynamicBody implements StepListener {
     private static final Shape studentShape = new BoxShape(1,2);
 
     private static final BodyImage image =
@@ -21,5 +21,15 @@ public class Student extends DynamicBody {
     }
     public int getCredits(){
         return credits;
+    }
+
+    @Override
+    public void preStep(StepEvent stepEvent) {
+
+    }
+
+    @Override
+    public void postStep(StepEvent stepEvent) {
+
     }
 }
