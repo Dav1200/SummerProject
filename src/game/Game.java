@@ -24,6 +24,7 @@ public class Game {
         GameWorld world = new GameWorld();
 
 
+
         //2. make a view to look into the game world
         GameView view = new GameView(world, 1280, 720,world.getStudent());
         world.addStepListener(world.getStudent());
@@ -31,7 +32,11 @@ public class Game {
         //optional: draw a 1-metre grid over the view
         //view.setGridResolution(1);
 
+        MouseFocus focus = new MouseFocus(world, view);
+        Movement move = new Movement(world);
 
+        view.addMouseListener(focus);
+        view.addKeyListener(move);
 
 
         //3. create a Java window (frame) and add the game
