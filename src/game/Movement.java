@@ -8,12 +8,14 @@ import java.awt.event.KeyListener;
 public class Movement implements KeyListener {
 
     private GameWorld World;
+    private int speed;
 
-
-    public Movement (GameWorld World){
+    public Movement(GameWorld World) {
         this.World = World;
+        speed = 6;
 
-}
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -21,18 +23,19 @@ public class Movement implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-    int code = e.getKeyCode();
+        int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
-            World.getStudent().setPosition(new Vec2(World.getStudent().getPosition().x, World.getStudent().getPosition().y+1));
+
         }
         if (code == KeyEvent.VK_A) {
-            World.getStudent().setPosition(new Vec2(World.getStudent().getPosition().x-1, World.getStudent().getPosition().y));
+            World.getStudent().move(-speed);
         }
         if (code == KeyEvent.VK_S) {
-            World.getStudent().setPosition(new Vec2(World.getStudent().getPosition().x, World.getStudent().getPosition().y - 1));
+            World.getStudent().stopWalking();
+
         }
         if (code == KeyEvent.VK_D) {
-            World.getStudent().setPosition(new Vec2(World.getStudent().getPosition().x+1, World.getStudent().getPosition().y));
+            World.getStudent().move(speed);
         }
 
     }
@@ -40,5 +43,14 @@ public class Movement implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+        int code = e.getKeyCode();
+        if (code == KeyEvent.VK_D) {
+            World.getStudent().Stop();
+            World.getStudent().setLinearVelocity(new Vec2(0,0));
+        }
+        if (code == KeyEvent.VK_A) {
+            World.getStudent().Stop();
+            World.getStudent().setLinearVelocity(new Vec2(0,0));
+        }
     }
 }

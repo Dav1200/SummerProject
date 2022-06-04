@@ -4,6 +4,7 @@ import city.cs.engine.*;
 //dadadasdqawedfasdvxcv
 public class Player extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1,2);
+    private String facing;
 
     private static final BodyImage image =
             new BodyImage("data/student.png", 4f);
@@ -12,8 +13,30 @@ public class Player extends Walker implements StepListener {
 
     public Player(World world) {
         super(world, studentShape);
+        facing ="right";
         addImage(image);
         credits = 0;
+    }
+
+    public void move(float speed) {
+
+
+        if (speed < 0 ) {
+
+            this.startWalking(-6);
+
+        }
+
+        else if (speed > 0) {
+
+            this.startWalking(6);
+
+        }
+
+    }
+
+    public void Stop(){
+        stopWalking();
     }
 
     public void setCredits(int credits){
@@ -25,7 +48,7 @@ public class Player extends Walker implements StepListener {
 
     @Override
     public void preStep(StepEvent stepEvent) {
-
+    getLinearVelocity();
     }
 
     @Override
