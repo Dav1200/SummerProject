@@ -12,7 +12,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
- * Your main game entry point hello
+ * Your main game entry point
  */
 public class Game {
 //Abdul
