@@ -12,7 +12,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
- * Your main game entry point
+ * Your main game entry point ez made by the one and only roland
  */
 public class Game {
 
