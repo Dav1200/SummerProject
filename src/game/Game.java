@@ -35,7 +35,7 @@ public class Game {
         world.addStepListener(world.getStudent());
         world.addStepListener(view);
         //optional: draw a 1-metre grid over the view
-        view.setGridResolution(1);
+
 
         MouseFocus focus = new MouseFocus(world, view);
         Movement move = new Movement(world);
