@@ -8,7 +8,7 @@ import org.jbox2d.common.Vec2;
 public class Player extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1, 2);
     private String facing;
-
+    private float speed;
 
     private Boolean moveUp;
     private Boolean moveDown;
@@ -29,14 +29,14 @@ public class Player extends Walker implements StepListener {
 
     public void move(float speed) {
 
-
+    this.speed = speed;
         if (speed < 0) {
 
-            this.startWalking(-6);
+            this.startWalking(speed);
 
         } else if (speed > 0) {
 
-            this.startWalking(6);
+            this.startWalking(speed);
 
         }
 
@@ -57,11 +57,11 @@ public class Player extends Walker implements StepListener {
     @Override
     public void preStep(StepEvent stepEvent) {
         if (moveUp) {
-            this.setLinearVelocity(new Vec2(0, 6f));
+            this.setLinearVelocity(new Vec2(0, 6));
         }
 
         if (moveDown) {
-            this.setLinearVelocity(new Vec2(0, -6f));
+            this.setLinearVelocity(new Vec2(0, -6));
         }
     }
 
