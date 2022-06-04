@@ -20,6 +20,7 @@ public class GameView extends UserView {
     protected void paintBackground(Graphics2D g) {
         super.paintBackground(g);
         g.drawImage(background,0,0,this);
+        g.drawImage(background,704,0,this);
 
 
 
