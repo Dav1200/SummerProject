@@ -18,7 +18,7 @@ public class Movement implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+//
     }
 
     @Override
