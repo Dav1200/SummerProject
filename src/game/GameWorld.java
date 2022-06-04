@@ -8,7 +8,7 @@ public class GameWorld extends World {
     public GameWorld(){
 
         setGravity(0);
-
+//
         //make the ground
         Shape shape = new BoxShape(11, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
