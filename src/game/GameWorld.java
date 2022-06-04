@@ -8,7 +8,7 @@ public class GameWorld extends World {
     private Student student;
 
     public GameWorld() {
-
+        getSimulationSettings().setTargetFrameRate(60);
         setGravity(0);
 //
         //make the ground
