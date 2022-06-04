@@ -25,13 +25,14 @@ public class Movement implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
+            World.getStudent().setMoveUp(true);
 
         }
         if (code == KeyEvent.VK_A) {
             World.getStudent().move(-speed);
         }
         if (code == KeyEvent.VK_S) {
-            World.getStudent().stopWalking();
+            World.getStudent().setMoveDown(true);
 
         }
         if (code == KeyEvent.VK_D) {
@@ -46,11 +47,21 @@ public class Movement implements KeyListener {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_D) {
             World.getStudent().Stop();
-            World.getStudent().setLinearVelocity(new Vec2(0,0));
+            World.getStudent().setLinearVelocity(new Vec2(0, 0));
         }
         if (code == KeyEvent.VK_A) {
             World.getStudent().Stop();
-            World.getStudent().setLinearVelocity(new Vec2(0,0));
+            World.getStudent().setLinearVelocity(new Vec2(0, 0));
+        }
+
+        if (code == KeyEvent.VK_W) {
+            World.getStudent().setMoveUp(false);
+            World.getStudent().setLinearVelocity(new Vec2(0, 0));
+        }
+
+        if (code == KeyEvent.VK_S) {
+            World.getStudent().setMoveDown(false);
+            World.getStudent().setLinearVelocity(new Vec2(0, 0));
         }
     }
 }
