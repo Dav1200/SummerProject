@@ -1,26 +1,33 @@
 package game;
 
 import city.cs.engine.*;
-//dadadasdqawedfasdvxcv
+
 public class Student extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1,2);
 
     private static final BodyImage image =
             new BodyImage("data/student.png", 4f);
 
-    private int credits = 0;
+    private GameWorld world;
+    private int score = 0;
 
-    public Student(World world) {
+
+    public Student(GameWorld world) {
         super(world, studentShape);
         addImage(image);
-        credits = 0;
+        score = 0;
+        this.world = world;
+
     }
 
-    public void setCredits(int credits){
-        this.credits = credits;
+
+
+
+    public void setScore(int score){
+        this.score = score;
     }
-    public int getCredits(){
-        return credits;
+    public int getScore(){
+        return score;
     }
 
     @Override
