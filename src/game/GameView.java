@@ -13,13 +13,14 @@ public class GameView extends UserView {
 
     public GameView(GameWorld w, int width, int height) {
         super(w, width, height);
-        background = new ImageIcon("Grass_Sample.png").getImage();
+        background = new ImageIcon("data/Grass_Sample.png").getImage();
     }
 
     @Override
     protected void paintBackground(Graphics2D g) {
         super.paintBackground(g);
         g.drawImage(background,0,0,this);
+
 
 
     }
