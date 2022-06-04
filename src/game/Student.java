@@ -2,7 +2,7 @@ package game;
 
 import city.cs.engine.*;
 //dadadasdqawedfasdvxcv
-public class Student extends DynamicBody implements StepListener {
+public class Student extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1,2);
 
     private static final BodyImage image =
