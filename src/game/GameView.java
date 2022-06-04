@@ -21,6 +21,10 @@ public class GameView extends UserView {
         super.paintBackground(g);
         g.drawImage(background,0,0,this);
         g.drawImage(background,704,0,this);
+        g.drawImage(background,0,310,this);
+        g.drawImage(background,704,310,this);
+        g.drawImage(background,0,610,this);
+        g.drawImage(background,704,610,this);
 
 
 
