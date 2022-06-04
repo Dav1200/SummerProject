@@ -3,8 +3,6 @@ package game;
 import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
 import city.cs.engine.UserView;
-import city.cs.engine.World;
-import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,10 +11,10 @@ public class GameView extends UserView implements StepListener {
 
     private Image background;
     private GameWorld World;
-    private Student student;
+    private Player student;
 
 
-    public GameView(GameWorld w, int width, int height, Student student) {
+    public GameView(GameWorld w, int width, int height, Player student) {
         super(w, width, height);
         this.student = student;
         this.World = World;
