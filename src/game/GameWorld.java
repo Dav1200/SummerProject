@@ -7,8 +7,9 @@ public class GameWorld extends World {
 
     private Player student;
     private Enemies enemies;
-
-    public GameWorld() {
+    private GameView view;
+    public GameWorld(GameView view) {
+        this.view = view;
         getSimulationSettings().setTargetFrameRate(60);
         setGravity(0);
 

@@ -15,22 +15,27 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * Your main game entry point
  */
 public class Game {
+    public GameView getView() {
+        return view;
+    }
 
+    private GameView view;
 
     /** Initialise a new Game. */
     public Game() {
 
         //1. make your game world
-        GameWorld world = new GameWorld();
+        GameWorld world = new GameWorld(getView());
 
 
 
         //2. make a view to look into the game world
-        GameView view = new GameView(world, 1280, 720,world.getStudent());
+         view = new GameView(world, 1280, 720,world.getStudent());
+
         world.addStepListener(world.getStudent());
         world.addStepListener(view);
         //optional: draw a 1-metre grid over the view
-        //view.setGridResolution(1);
+        view.setGridResolution(1);
 
         MouseFocus focus = new MouseFocus(world, view);
         Movement move = new Movement(world);
@@ -43,6 +48,7 @@ public class Game {
         //   view to it
         final JFrame frame = new JFrame("City Game");
         frame.add(view);
+
 
         // enable the frame to quit the application
         // when the x button is pressed

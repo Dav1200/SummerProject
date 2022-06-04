@@ -33,6 +33,8 @@ public class Player extends Walker implements StepListener {
         if (speed < 0) {
 
             this.startWalking(speed);
+            //background move left -> - in x
+
 
         } else if (speed > 0) {
 
