@@ -2,7 +2,7 @@ package game;
 
 import city.cs.engine.*;
 //dadadasdqawedfasdvxcv
-public class Student extends Walker implements StepListener {
+public class Player extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1,2);
 
     private static final BodyImage image =
@@ -10,7 +10,7 @@ public class Student extends Walker implements StepListener {
 
     private int credits = 0;
 
-    public Student(World world) {
+    public Player(World world) {
         super(world, studentShape);
         addImage(image);
         credits = 0;

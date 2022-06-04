@@ -5,7 +5,7 @@ import org.jbox2d.common.Vec2;
 
 public class GameWorld extends World {
 
-    private Student student;
+    private Player student;
 
     public GameWorld() {
         getSimulationSettings().setTargetFrameRate(60);
@@ -16,16 +16,16 @@ public class GameWorld extends World {
         StaticBody ground = new StaticBody(this, shape);
         ground.setPosition(new Vec2(0f, -11.5f));
 
-        student = new Student(this);
+        student = new Player(this);
 
         student.setPosition(new Vec2(7, -6));
     }
 
-    public Student getStudent() {
+    public Player getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(Player student) {
         this.student = student;
     }
 
