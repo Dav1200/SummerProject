@@ -12,7 +12,7 @@ public class Movement implements KeyListener {
 
     public Movement(GameWorld World) {
         this.World = World;
-        speed = 6;
+        speed = 20;
 
     }
 

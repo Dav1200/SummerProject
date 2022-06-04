@@ -57,11 +57,11 @@ public class Player extends Walker implements StepListener {
     @Override
     public void preStep(StepEvent stepEvent) {
         if (moveUp) {
-            this.setLinearVelocity(new Vec2(0, 6));
+            this.setLinearVelocity(new Vec2(0, 20));
         }
 
         if (moveDown) {
-            this.setLinearVelocity(new Vec2(0, -6));
+            this.setLinearVelocity(new Vec2(0, -20));
         }
     }
 
