@@ -1,14 +1,28 @@
 package game;
 
 import city.cs.engine.*;
+import city.cs.engine.Shape;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.jbox2d.common.Vec2;
+
+import java.awt.*;
+import java.awt.geom.Point2D;
 
 //dadadasdqawedfasdvxcv
 public class Player extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1, 2);
     private String facing;
     private float speed;
+
+    public Vec2 getMousePos() {
+        return MousePos;
+    }
+
+    public void setMousePos(Vec2 mousePos) {
+        MousePos = mousePos;
+    }
+
+    private Vec2 MousePos;
 
     private Boolean moveUp;
     private Boolean moveDown;
@@ -22,14 +36,31 @@ public class Player extends Walker implements StepListener {
         super(world, studentShape);
         facing = "right";
         addImage(image);
+
         credits = 0;
         moveDown = false;
         moveUp = false;
     }
 
+    public void Shoot() {
+        Shape circle = new CircleShape(0.5f);
+        DynamicBody bullet = new DynamicBody(this.getWorld(),circle);
+
+        //DynamicBody bullet = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+        //bullet.addImage(grenadeimg);
+        Vec2 dir = MousePos.sub(this.getPosition());
+        dir.normalize();
+
+        bullet.setPosition(this.getPosition().add(dir.mul(1f)));
+        bullet.setLinearVelocity(dir.mul(40));
+
+
+
+    }
+
     public void move(float speed) {
 
-    this.speed = speed;
+        this.speed = speed;
         if (speed < 0) {
 
             this.startWalking(speed);
@@ -69,6 +100,8 @@ public class Player extends Walker implements StepListener {
 
     @Override
     public void postStep(StepEvent stepEvent) {
+        System.out.println(MousePos);
+
 
     }
 

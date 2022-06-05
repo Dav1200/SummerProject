@@ -35,6 +35,7 @@ public class Game {
         view.setZoom(16);
         world.addStepListener(world.getStudent());
         world.addStepListener(view);
+
         world.addStepListener(world.getEnemies());
         //optional: draw a 1-metre grid over the view
 

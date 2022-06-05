@@ -22,7 +22,7 @@ public class MouseFocus implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        World.getStudent().Shoot();
     }
 
     @Override

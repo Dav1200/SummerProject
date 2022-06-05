@@ -14,18 +14,21 @@ public class GameView extends UserView implements StepListener {
     private Image background;
     private GameWorld World;
     private Player student;
+    private Vec2 MousePosition;
 
 
     public GameView(GameWorld w, int width, int height, Player student) {
         super(w, width, height);
         this.student = student;
-        this.World = World;
+        this.World = w;
+
         background = new ImageIcon("data/Grass_Sample.png").getImage();
     }
 
     @Override
     protected void paintBackground(Graphics2D g) {
         super.paintBackground(g);
+
         Point2D d = worldToView(new Vec2(0, 0));
 
 
@@ -48,10 +51,16 @@ public class GameView extends UserView implements StepListener {
     @Override
     public void preStep(StepEvent stepEvent) {
         setCentre(student.getPosition());
+
+        MousePosition = viewToWorld(new Point2D.Double(MouseInfo.getPointerInfo().getLocation().getX(),MouseInfo.getPointerInfo().getLocation().getY()));
+       World.getStudent().setMousePos(MousePosition);
     }
 
     @Override
     public void postStep(StepEvent stepEvent) {
 
     }
+
+
+
 }
