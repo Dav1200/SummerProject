@@ -52,8 +52,7 @@ public class Enemies extends Walker implements StepListener {
                 int random_x = (int)Math.floor(Math.random()*(xmax-xmin+1)+xmin);
                 int random_y = (int)Math.floor(Math.random()*(ymax-ymin+1)+ymin);
                 Enemies enemy = new Enemies(world);
-                enemy.setPosition(new Vec2(random_x,random_y));
-                //enemy.setPosition(new Vec2(world.getStudent().getPosition().x+20, world.getStudent().getPosition().y + 20));
+                enemy.setPosition(new Vec2(world.getStudent().getPosition().x+random_x, world.getStudent().getPosition().y +random_y));
                 world.addStepListener(enemy);
             }
         });
