@@ -21,11 +21,11 @@ public class Enemies extends Walker implements StepListener {
     private String facing;
     private Boolean move;
 
-    private int xmin = -7040;
-    private int xmax = 7040;
+    private int xmin = -100;
+    private int xmax = 100;
 
-    private int ymin = -320;
-    private int ymax = 320;
+    private int ymin = -120;
+    private int ymax = 120;
 
     private int hp;
 

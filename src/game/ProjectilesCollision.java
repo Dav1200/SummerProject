@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class ProjectilesCollision implements CollisionListener {
     private Player p;
-    private  Timer delete;
+
 
     public ProjectilesCollision(Player p) {
 
