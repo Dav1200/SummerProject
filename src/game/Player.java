@@ -51,6 +51,7 @@ public class Player extends Walker implements StepListener {
         Vec2 dir = MousePos.sub(this.getPosition());
         dir.normalize();
 
+
         bullet.setPosition(this.getPosition().add(dir.mul(1f)));
         bullet.setLinearVelocity(dir.mul(40));
         ProjectilesCollision Clean = new ProjectilesCollision(this);

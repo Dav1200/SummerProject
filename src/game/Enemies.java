@@ -3,6 +3,12 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import java.util.random.RandomGenerator;
+
 public class Enemies extends Walker implements StepListener {
 
     private static final Shape enemiesShape = new BoxShape(1, 2);
@@ -15,15 +21,43 @@ public class Enemies extends Walker implements StepListener {
     private String facing;
     private Boolean move;
 
+    private int xmin = -7040;
+    private int xmax = 7040;
+
+    private int ymin = -320;
+    private int ymax = 320;
+
+    private int hp;
 
     public Enemies(GameWorld world) {
         super(world, enemiesShape);
         addImage(image);
         this.world = world;
         facing = "none";
-
+        hp = 100;
         move = true;
+    }
 
+    public void dead(){
+        hp -= 50;
+        if(hp <= 0){
+            this.destroy();
+        }
+    }
+
+    public void spawn(){
+        Timer t = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int random_x = (int)Math.floor(Math.random()*(xmax-xmin+1)+xmin);
+                int random_y = (int)Math.floor(Math.random()*(ymax-ymin+1)+ymin);
+                Enemies enemy = new Enemies(world);
+                enemy.setPosition(new Vec2(random_x,random_y));
+                //enemy.setPosition(new Vec2(world.getStudent().getPosition().x+20, world.getStudent().getPosition().y + 20));
+                world.addStepListener(enemy);
+            }
+        });
+        t.start();
     }
 
 

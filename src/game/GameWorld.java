@@ -6,12 +6,10 @@ import org.jbox2d.common.Vec2;
 public class GameWorld extends World {
 
     private Player student;
-
-
-
     private Enemies enemies;
     private GameView view;
     public GameWorld(GameView view) {
+
         this.view = view;
         getSimulationSettings().setTargetFrameRate(60);
         setGravity(0);
@@ -21,7 +19,7 @@ public class GameWorld extends World {
         student.setPosition(new Vec2(7, -6));
 
         enemies = new Enemies(this);
-       // enemies.movement();
+        enemies.spawn();
     }
 
     public Player getStudent() {

@@ -15,8 +15,9 @@ public class ProjectilesCollision implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent collisionEvent) {
-
-
-
+        if(collisionEvent.getOtherBody() instanceof Enemies){
+            collisionEvent.getReportingBody().destroy();
+            ((Enemies) collisionEvent.getOtherBody()).dead();
+        }
     }
 }
