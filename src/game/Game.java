@@ -45,6 +45,8 @@ public class Game {
 
         view.addMouseListener(focus);
         view.addKeyListener(move);
+        view.addMouseMotionListener(focus);
+
 
 
         //3. create a Java window (frame) and add the game

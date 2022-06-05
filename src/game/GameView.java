@@ -51,9 +51,6 @@ public class GameView extends UserView implements StepListener {
     @Override
     public void preStep(StepEvent stepEvent) {
         setCentre(student.getPosition());
-
-        MousePosition = viewToWorld(new Point2D.Double(MouseInfo.getPointerInfo().getLocation().getX(),MouseInfo.getPointerInfo().getLocation().getY()));
-       World.getStudent().setMousePos(MousePosition);
     }
 
     @Override

@@ -1,16 +1,17 @@
 package game;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import city.cs.engine.StepEvent;
+import city.cs.engine.StepListener;
+import org.jbox2d.common.Vec2;
 
-public class MouseFocus implements MouseListener {
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MouseFocus implements MouseListener, MouseMotionListener {
 
     private GameWorld World;
     private GameView View;
-
+    private MouseEvent ee;
     private Timer test;
 
 
@@ -31,7 +32,12 @@ public class MouseFocus implements MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent ee) {
+        this.ee = ee;
+
+        Vec2 d = View.viewToWorld(ee.getPoint());
+        World.getStudent().setMousePos(d);
+        World.getStudent().Shoot();
         test.start();
 
 
@@ -40,6 +46,7 @@ public class MouseFocus implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
+
     test.stop();
     }
 
@@ -51,6 +58,17 @@ public class MouseFocus implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        Vec2 d = View.viewToWorld(e.getPoint());
+        World.getStudent().setMousePos(d);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
 
     }
 }
