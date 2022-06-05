@@ -16,10 +16,6 @@ public class GameWorld extends World {
         getSimulationSettings().setTargetFrameRate(60);
         setGravity(0);
 
-        //make the ground
-        Shape shape = new BoxShape(11, 0.5f);
-        StaticBody ground = new StaticBody(this, shape);
-        ground.setPosition(new Vec2(0f, -11.5f));
 
         student = new Player(this);
         student.setPosition(new Vec2(7, -6));
