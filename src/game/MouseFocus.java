@@ -1,5 +1,8 @@
 package game;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -8,11 +11,18 @@ public class MouseFocus implements MouseListener {
     private GameWorld World;
     private GameView View;
 
+    private Timer test;
 
-    public MouseFocus (GameWorld World, GameView View){
+
+    public MouseFocus(GameWorld World, GameView View) {
         this.World = World;
         this.View = View;
-
+        test = new Timer(140, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                World.getStudent().Shoot();
+            }
+        });
     }
 
     @Override
@@ -22,17 +32,21 @@ public class MouseFocus implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        World.getStudent().Shoot();
+        test.start();
+
+
     }
+
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+    test.stop();
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-       View.requestFocus();
+        View.requestFocus();
+
     }
 
     @Override

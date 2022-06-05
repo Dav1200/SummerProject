@@ -100,7 +100,7 @@ public class Player extends Walker implements StepListener {
 
     @Override
     public void postStep(StepEvent stepEvent) {
-        System.out.println(MousePos);
+
 
 
     }
