@@ -26,9 +26,7 @@ public class Enemies extends Walker implements StepListener {
 
     }
 
-
-    @Override
-    public void preStep(StepEvent stepEvent) {
+    public void movement() {
         PlayerPos = world.getStudent().getPosition();
 
 
@@ -75,7 +73,13 @@ public class Enemies extends Walker implements StepListener {
 
         }
 
+    }
 
+
+    @Override
+    public void preStep(StepEvent stepEvent) {
+
+        movement();
     }
 
 
