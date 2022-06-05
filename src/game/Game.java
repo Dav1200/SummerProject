@@ -21,19 +21,21 @@ public class Game {
 
     private GameView view;
 
-    /** Initialise a new Game. */
+    /**
+     * Initialise a new Game.
+     */
     public Game() {
 
         //1. make your game world
         GameWorld world = new GameWorld(getView());
 
 
-
         //2. make a view to look into the game world
-         view = new GameView(world, 1280, 720,world.getStudent());
-
+        view = new GameView(world, 1280, 720, world.getStudent());
+        view.setZoom(16);
         world.addStepListener(world.getStudent());
         world.addStepListener(view);
+        world.addStepListener(world.getEnemies());
         //optional: draw a 1-metre grid over the view
 
 
@@ -62,13 +64,15 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-       //  JFrame debugView = new DebugViewer(world, 500, 500);
+        //  JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
         world.start();
     }
 
-    /** Run the game. */
+    /**
+     * Run the game.
+     */
     public static void main(String[] args) {
 
         new Game();

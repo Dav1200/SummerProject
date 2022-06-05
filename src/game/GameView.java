@@ -28,47 +28,20 @@ public class GameView extends UserView implements StepListener {
         super.paintBackground(g);
         Point2D d = worldToView(new Vec2(0, 0));
 
-       /// int i = 0;
-       // int k = 0;
-      //  while(i<25){
-      //      while(k<25){
-      //          g.drawImage(background, (int) d.getX() + i * 704, (int) d.getY()+k*320, this);
-      //          g.drawImage(background, (int) d.getX() - i * 704, (int) d.getY()-k*320, this);
-      //          g.drawImage(background, (int) d.getX(), (int) d.getY()+k*320, this);
-       //         g.drawImage(background, (int) d.getX() , (int) d.getY()-k*320, this);
-        //            i++;
-        //            k++; ///
-
 
         for(int i=0; i<10; i++) {
             for (int k = 0; k < 10; k++) {
-
-
                 g.drawImage(background, (int) d.getX() + i * 704, (int) d.getY() + k * 320, this);
                 g.drawImage(background, (int) d.getX() - i * 704, (int) d.getY() - k * 320, this);
                 g.drawImage(background, (int) d.getX() + i * 704, (int) d.getY() - k * 320, this);
                 g.drawImage(background, (int) d.getX() - i * 704, (int) d.getY() + k * 320, this);
             }
         }
-
-        }
-
-
-          /* g.drawImage(background, (int) d.getX() + 704, (int) d.getY(), this);
-           g.drawImage(background, (int) d.getX(), (int) d.getY() + 310, this);
-           g.drawImage(background, (int) d.getX() + 704, (int) d.getY() + 310, this);
-           g.drawImage(background, (int) d.getX(), (int) d.getY() + 610, this);
-           g.drawImage(background, (int) d.getX() + 704, (int) d.getY() + 610, this);
-
-           */
-
-
-
-
-
+    }
     @Override
     protected void paintForeground(Graphics2D g) {
         super.paintForeground(g);
+
 
     }
 

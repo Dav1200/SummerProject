@@ -6,6 +6,9 @@ import org.jbox2d.common.Vec2;
 public class GameWorld extends World {
 
     private Player student;
+
+
+
     private Enemies enemies;
     private GameView view;
     public GameWorld(GameView view) {
@@ -22,7 +25,7 @@ public class GameWorld extends World {
         student.setPosition(new Vec2(7, -6));
 
         enemies = new Enemies(this);
-        enemies.movement();
+       // enemies.movement();
     }
 
     public Player getStudent() {
@@ -31,6 +34,13 @@ public class GameWorld extends World {
 
     public void setStudent(Player student) {
         this.student = student;
+    }
+    public Enemies getEnemies() {
+        return enemies;
+    }
+
+    public void setEnemies(Enemies enemies) {
+        this.enemies = enemies;
     }
 
 }
