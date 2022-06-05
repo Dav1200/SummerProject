@@ -2,18 +2,18 @@ package game;
 
 import city.cs.engine.*;
 import city.cs.engine.Shape;
-import jdk.swing.interop.SwingInterOpUtils;
 import org.jbox2d.common.Vec2;
 
-import java.awt.*;
-import java.awt.event.MouseListener;
-import java.awt.geom.Point2D;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //dadadasdqawedfasdvxcv
 public class Player extends Walker implements StepListener {
     private static final Shape studentShape = new BoxShape(1, 2);
     private String facing;
     private float speed;
+    private Shape circle = new CircleShape(0.5f);
 
     public Vec2 getMousePos() {
         return MousePos;
@@ -32,8 +32,9 @@ public class Player extends Walker implements StepListener {
             new BodyImage("data/student.png", 4f);
 
     private int credits = 0;
+    private GameWorld Gworld;
 
-    public Player(World world) {
+    public Player(World world, GameWorld GWorld) {
         super(world, studentShape);
         facing = "right";
         addImage(image);
@@ -44,19 +45,26 @@ public class Player extends Walker implements StepListener {
     }
 
     public void Shoot() {
-        Shape circle = new CircleShape(0.5f);
-        DynamicBody bullet = new DynamicBody(this.getWorld(),circle);
 
-        //DynamicBody bullet = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
-        //bullet.addImage(grenadeimg);
+        DynamicBody bullet = new DynamicBody(this.getWorld(), circle);
+
         Vec2 dir = MousePos.sub(this.getPosition());
         dir.normalize();
 
         bullet.setPosition(this.getPosition().add(dir.mul(1f)));
         bullet.setLinearVelocity(dir.mul(40));
+        ProjectilesCollision Clean = new ProjectilesCollision(this);
+        bullet.addCollisionListener(Clean);
 
+        Timer t = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bullet.destroy();
 
-
+            }
+        });
+        t.start();
+        t.setRepeats(false);
     }
 
     public void move(float speed) {
@@ -101,7 +109,6 @@ public class Player extends Walker implements StepListener {
 
     @Override
     public void postStep(StepEvent stepEvent) {
-
 
 
     }

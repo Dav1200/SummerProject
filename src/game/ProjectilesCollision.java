@@ -1,0 +1,22 @@
+package game;
+
+import city.cs.engine.CollisionEvent;
+import city.cs.engine.CollisionListener;
+
+import javax.swing.*;
+
+public class ProjectilesCollision implements CollisionListener {
+    private Player p;
+    private  Timer delete;
+
+    public ProjectilesCollision(Player p) {
+
+    }
+
+    @Override
+    public void collide(CollisionEvent collisionEvent) {
+
+
+
+    }
+}

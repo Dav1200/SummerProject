@@ -17,7 +17,7 @@ public class GameWorld extends World {
         setGravity(0);
 
 
-        student = new Player(this);
+        student = new Player(this,this);
         student.setPosition(new Vec2(7, -6));
 
         enemies = new Enemies(this);
